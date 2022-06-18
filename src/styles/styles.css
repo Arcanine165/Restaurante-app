@@ -1,0 +1,192 @@
+
+*{
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+
+}
+body{
+    position: relative;
+    padding-bottom: 3em;
+    min-height: 100vh;
+    background-color: #DFAD62;
+}
+/*Navbar*/
+.navbar{
+    display: flex;
+    background-color: #faebd7;
+    flex-direction: column;   
+    align-items:flex-start !important;
+    
+}
+.navbar_brand{
+    height: 70px;
+    width: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../img/placeholder_restaurant.jpg');
+    cursor: pointer;
+}
+
+.menu{
+    background-image: url('../img/menu\ \(2\).png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+    
+}
+
+.navbar_links{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: right;
+    margin: 5px;
+}
+.navbar_link:hover{
+    color: #C0BDB8;
+}
+.hidden{
+    display: none;
+}
+.navbar_link{
+    text-decoration: none;
+    color: black;
+}
+/*********************Navbar******************************/
+/*********************************************************/
+/*Reservaciones*/
+.reservaciones{
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center; 
+
+}
+.btn-primaryColor{
+    background-color: #f1b36b !important;
+}
+.btn-dateColor{
+    background-color: #f5d8b2;
+}
+.reservaciones_tittle{
+    text-align: center;
+    color: #f1b36b;
+}
+.reservaciones_tittle-secondaryColor{
+    color: #f1b36b;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.input_date{
+    text-align: center;
+    border-bottom: 1px solid #f1b36b ;
+}
+.input{
+    outline: none;
+    border-bottom: 1px solid #f1b36b ;
+    transition: border 1s ease-in;
+}
+
+.reservaciones_form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+
+    
+}
+.reservaciones_form > input {
+    width: 200px;
+    line-height: 20px;
+    
+    outline: none;
+    background-color: transparent;
+    transition: border .5s ease-in-out;
+}
+.reservaciones_form > input:focus {
+    border-bottom: red 1px solid;
+    
+}
+.message-error{
+    margin-top: 10px;
+    padding: 10px;
+    height: 50px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #FE6464;
+    color: white;
+
+}
+.reservaciones_reservarBtn{
+    width: 200px;
+    border-radius: 50px;
+    padding: 8px;
+    cursor: pointer;
+}
+.mesas_distribucion{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(4,1fr);
+}
+.mesa{
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/mesa-de-cena.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    line-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+
+}
+.available{
+    background-color: #49E730;
+}
+.selected{
+    background-color: #72DEF4;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
+
+/*Reservaciones*/
+/**********Footer************/
+.footer{
+    position: absolute;
+    bottom: 0;
+}
+/*********Footer**********/
+
+@media(min-width: 800px){
+    .navbar{
+        flex-direction: row;
+        align-items: center;
+    }
+    .navbar_links{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+}
+/**********MediaQueries************/
