@@ -316,6 +316,13 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
     align-items: flex-start;
 }
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
 /*********Footer**********/
 
 @media(min-width: 800px){
@@ -329,17 +336,21 @@ input[type=number]::-webkit-outer-spin-button {
     .mainInformation{
         display: flex;
         flex-direction: row;
-        text-align: center;
+        text-align:justify;
         margin: 10px;
+        overflow-wrap: break-word;
+        width: 1000px;
+        gap: 100px;
     }
     .mainInformation img{
-        width: 1000px;
-        height: 500px;
+        background-size: cover;
         
     }
     .info{
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         
     }
     .btn-primaryColor-inicio{
