@@ -20,6 +20,17 @@ body{
 #root{
     min-height: 100vh;
 }
+.mainInformation{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: center;
+}
+.mainInformation img{
+    max-width: 300px;
+    max-height: 300px;
+
+}
 /*Helpers*/
 .footer_tittle{
     font-size: 10px;
@@ -239,9 +250,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0 auto;
     
 }
-.lol{
-    
-}
+
 /* .show-popup{
     visibility: visible;
     top: 50%;
