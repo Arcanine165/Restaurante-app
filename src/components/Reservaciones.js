@@ -35,6 +35,7 @@ export const Reservaciones = () => {
     
 
   return (
+    
     <div className='reservaciones'>
         <h1 className='reservaciones_tittle'>Haz tu reservacion ya!</h1>
         <form className='form-group' onSubmit={handleOnSubmit}>
@@ -46,8 +47,10 @@ export const Reservaciones = () => {
         </form>
         <br/>
         {status && <AvailableDates reservacionInfo = {values}/>}
-        <Footer/>
+        
     </div>
+    
+    
 
   )
 }
