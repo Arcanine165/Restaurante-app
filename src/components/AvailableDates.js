@@ -28,7 +28,7 @@ export const AvailableDates = ({reservacionInfo}) => {
     const [reservacion,handleInputChange] = useForm(initialState);
     const [popUpVisible, setPopUpVisible] = useState(false)
     const {name,lastName,email,phone} = reservacion;
-      
+    
     const getHorasDisponibles = () => {
         
         let excludeHours = [];
@@ -50,11 +50,16 @@ export const AvailableDates = ({reservacionInfo}) => {
     }
     const handleOnSubmit = async(e) => {
         e.preventDefault();
-        reservacion.code = "#"+ lastName.substring(0,2) + name.substring(0,2) + new Date().valueOf();
-        console.log(reservacion)
-       await addDoc(collection(db,'mesas'),reservacion);
+        if(name.length == 0 || lastName.length == 0 || email.length ==0 || phone.length ==0 ){
+            return;
+        }else{
+            reservacion.code = "#"+ lastName.substring(0,2) + name.substring(0,2) + new Date().valueOf();
+            await addDoc(collection(db,'mesas'),reservacion);
+            setPopUpVisible(!popUpVisible);
 
-       setPopUpVisible(!popUpVisible)
+        }
+        
+
        
     }
     // const setHoursAvailable = () => {
