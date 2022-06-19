@@ -9,6 +9,7 @@ import { Reservaciones } from './components/Reservaciones';
 import { Inicio } from './components/Inicio';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { Menu } from './components/Menu';
+import { BuscarReservacion } from './components/BuscarReservacion';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
@@ -16,6 +17,7 @@ root.render(
       <Route path='/' element = {<StaticInformation/>}>
         <Route path='/' element = {<Inicio/>}/>
         <Route path='/reservaciones' element = {<Reservaciones/>}/>
+        <Route path='/buscarReservacion' element = {<BuscarReservacion/>}/>
         <Route path='/menu' element ={<Menu/>}/>
         <Route path='/nosotros' element ={<Inicio/>}/>
       </Route>

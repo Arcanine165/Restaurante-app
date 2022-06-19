@@ -45,6 +45,7 @@ export const StaticInformation = () => {
                     <Link to= '/' className='navbar_link'>Inicio</Link>
                     <Link to ='/menu' className='navbar_link'>Menu</Link>
                     <Link to ='/reservaciones' className='navbar_link'>Reservaciones</Link>
+                    <Link to='/buscarReservacion' className='navbar_link'>Buscar reservacion</Link>
                     <Link to ='/nosotros' className='navbar_link'>Nosotros</Link>
                 </div>
             }

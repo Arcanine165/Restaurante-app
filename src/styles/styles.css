@@ -120,6 +120,9 @@ h3{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 .input_date{
     text-align: center;
@@ -129,6 +132,7 @@ h3{
     outline: none;
     border-bottom: 1px solid #f1b36b ;
     transition: border 1s ease-in;
+    
 }
 
 .reservaciones_form{
@@ -208,6 +212,21 @@ h3{
     margin-right: 10px;
     margin-left: 10px;
 }
+.formBusqueda{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.informacionReservacion{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
 .available{
     background-color: #49E730;
 }
@@ -262,7 +281,11 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0 auto;
     
 }
-
+.btn-primaryColor-inicio{
+    background-color: #f1b36b !important;
+   
+    
+}
 /* .show-popup{
     visibility: visible;
     top: 50%;
@@ -317,8 +340,7 @@ input[type=number]::-webkit-outer-spin-button {
     .info{
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        
     }
     .btn-primaryColor-inicio{
         background-color: #f1b36b !important;
@@ -333,6 +355,10 @@ input[type=number]::-webkit-outer-spin-button {
     }
     .reservaciones{
         margin: 0 auto;
+    }
+    .informacionReservacion{
+        
+        
     }
     .card{
         justify-content: center;

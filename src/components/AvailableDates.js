@@ -81,7 +81,7 @@ export const AvailableDates = ({reservacionInfo}) => {
     console.log(reservacion)
     
   return (
-    <>
+    <div>
         { availableHours.length != 0 ? <div className='horarios'>
             {availableHours.map((hour,index) => {
             return <li key={index} className='btn btn-primaryColor m-1 item' onClick={handleOnClick}>{hour}</li>
@@ -90,13 +90,13 @@ export const AvailableDates = ({reservacionInfo}) => {
         }
         {
             availableHours.length != 0 && visible && 
-            <div className='animate animate__backInLeft form'>
+            <div className='animate animate__backInLeft'>
                 <h1 className='text-center'>Contacto</h1>
                 <form className='form-group' onSubmit={handleOnSubmit}>
                     <input placeholder='Nombre' type="text" onChange={handleInputChange} name="name" value={name} className="input"/>
-                    <input placeholder='Apellido'type="text" name="lastName" onChange={handleInputChange} value={lastName}className="input"/>
-                    <input placeholder='correo' type="text" name="email" onChange={handleInputChange} value={email}className="input"/>
-                    <input placeholder='numero de telefono' type="number" name="phone"onChange={handleInputChange} value={phone}className="input"/>
+                    <input placeholder='Apellido'type="text" name="lastName" onChange={handleInputChange} value={lastName} className="input"/>
+                    <input placeholder='correo' type="text" name="email" onChange={handleInputChange} value={email} className="input"/>
+                    <input placeholder='numero de telefono' type="number" name="phone"onChange={handleInputChange} value={phone} className="input"/>
                     <button className='btn btn-primaryColor'>Reservar</button>
                 </form>
             </div>
@@ -105,6 +105,6 @@ export const AvailableDates = ({reservacionInfo}) => {
         {
             popUpVisible && <PopUp reservacion={reservacion}/>
         }
-    </>
+    </div>
   )
 }
