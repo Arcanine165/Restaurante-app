@@ -10,6 +10,7 @@ import {
   } from 'firebase/firestore'
 
 import {db} from '../firebase/firebase.js'
+import { PopUp } from './PopUp';
 
 export const AvailableDates = ({reservacionInfo}) => {
     const initialState ={
@@ -19,40 +20,54 @@ export const AvailableDates = ({reservacionInfo}) => {
         name:'',
         lastName:'',
         email:'',
-        phone:''
+        phone:'',
+        code:''
     }
-    const [availableHours, setAvailableHours] = useState(["12:00","13:00"]);
-    const [notAvailableHours, setNotAvailableHours] = useState([]);
+    const [availableHours, setAvailableHours] = useState(["12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"]);
+    // const [notAvailableHours, setNotAvailableHours] = useState([]);
     const [reservacion,handleInputChange] = useForm(initialState);
-    
+    const [popUpVisible, setPopUpVisible] = useState(false)
     const {name,lastName,email,phone} = reservacion;
       
     const getHorasDisponibles = () => {
-        const horas = [];
         
-        onSnapshot(collection(db,'horarios'),(snapshot) =>{
+        let excludeHours = [];
+        onSnapshot(collection(db,'mesas'),(snapshot) =>{
             snapshot.docs.forEach(hora => {
-                horas.push(hora.data())
+                if(availableHours.includes(hora.data().time) && hora.data().date == reservacionInfo.date){
+                    excludeHours.push(hora.data().time)
+                    
+                }
+                
             })
-        setNotAvailableHours(horas)
+        console.log(excludeHours)
+        setAvailableHours(availableHours.filter(hora => !excludeHours.includes(hora)))
+        console.log(availableHours)
+       
     })
+
         
     }
     const handleOnSubmit = async(e) => {
         e.preventDefault();
-       await addDoc(collection(db,'mesas'),reservacion)
+        reservacion.code = "#"+ lastName.substring(0,2) + name.substring(0,2) + new Date().valueOf();
+        console.log(reservacion)
+       await addDoc(collection(db,'mesas'),reservacion);
+
+       setPopUpVisible(!popUpVisible)
+       
     }
-    const setHoursAvailable = () => {
-        const horas = notAvailableHours.map(hour => {
-            if(availableHours.includes(hour)){
-                return hour.status && hour; 
-            }
-        })
-        setNotAvailableHours(horas);
-    }
+    // const setHoursAvailable = () => {
+    //     const horas = notAvailableHours.map(hour => {
+    //         if(availableHours.includes(hour)){
+    //             return hour.status && hour; 
+    //         }
+    //     })
+    //     setNotAvailableHours(horas);
+    // }
     useEffect(() => {
         getHorasDisponibles();
-        setHoursAvailable();
+        
      
     }, [])
     
@@ -64,17 +79,18 @@ export const AvailableDates = ({reservacionInfo}) => {
     }
     
     console.log(reservacion)
-
+    
   return (
-    <div>
-        { notAvailableHours.length != 0 ? notAvailableHours.map((hour,index) => {
-            return <button key={index} className='btn btn-primaryColor m-1' onClick={handleOnClick}>{hour.hora}</button>
-        }) : <h1>No tenemos horarios disponibles!</h1>
+    <>
+        { availableHours.length != 0 ? <div className='horarios'>
+            {availableHours.map((hour,index) => {
+            return <li key={index} className='btn btn-primaryColor m-1 item' onClick={handleOnClick}>{hour}</li>
+        })}</div> : <h1>No tenemos horarios disponibles!</h1>
         
         }
         {
-            notAvailableHours.length != 0 && visible && 
-            <div className='animate animate__backInLeft'>
+            availableHours.length != 0 && visible && 
+            <div className='animate animate__backInLeft form'>
                 <h1 className='text-center'>Contacto</h1>
                 <form className='form-group' onSubmit={handleOnSubmit}>
                     <input placeholder='Nombre' type="text" onChange={handleInputChange} name="name" value={name} className="input"/>
@@ -87,8 +103,8 @@ export const AvailableDates = ({reservacionInfo}) => {
             
         }
         {
-
+            popUpVisible && <PopUp reservacion={reservacion}/>
         }
-    </div>
+    </>
   )
 }

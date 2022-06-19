@@ -1,4 +1,10 @@
-
+:root{
+    --main-bg-color:#7b671f;
+    --secondary-color: #9f884f;
+    --third-color : #c3ad7e;
+    --fourth-color: #e7d5ac;
+    --five-color: #f8efdc;
+}
 *{
     padding: 0;
     border: 0;
@@ -8,13 +14,28 @@
 body{
     position: relative;
     padding-bottom: 3em;
-    min-height: 100vh;
-    background-color: #DFAD62;
+    
+    background-color: var(--secondary-color);
 }
+#root{
+    min-height: 100vh;
+}
+/*Helpers*/
+.footer_tittle{
+    font-size: 10px;
+}
+.a_link{
+    text-decoration: none;
+    color: #333;
+}
+.a_link:hover{
+    color: var(--main-bg-color);
+}
+/*Helpers*/
 /*Navbar*/
 .navbar{
     display: flex;
-    background-color: #faebd7;
+    background-color: var(--fourth-color);
     flex-direction: column;   
     align-items:flex-start !important;
     
@@ -49,7 +70,7 @@ body{
     margin: 5px;
 }
 .navbar_link:hover{
-    color: #C0BDB8;
+    color: var(--five-color);
 }
 .hidden{
     display: none;
@@ -136,6 +157,15 @@ body{
     padding: 8px;
     cursor: pointer;
 }
+/* .carousel{
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 24px;
+    display: flex;
+    width: 200px;
+}
+.carousel .item{
+    scroll-snap-align: start;
+} */
 .mesas_distribucion{
     display: grid;
     align-items: center;
@@ -155,6 +185,15 @@ body{
     justify-content: center;
     border-radius: 50px;
 
+}.horarios{
+    display: block;
+    margin: 0 auto;
+}
+.form{
+    min-width: 200px;
+    margin: 0 auto;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 .available{
     background-color: #49E730;
@@ -170,23 +209,85 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /*Reservaciones*/
+/*popup*/
+.popup{
+    width: 400px;
+    height: 400px;
+    background: var(--third-color);
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: visible;
+    color: var(--five-color);
+}   
+
+.popup_checkImg{
+    background-image: url('../img/cheque.png');
+    width: 100px;
+    margin-top: -50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    height: 100px;
+    
+    margin: 0 auto;
+    
+}
+/* .show-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+} */
+/*popup*/
 /**********Footer************/
 .footer{
     position: absolute;
     bottom: 0;
+    background-color: var(--fourth-color);
+    width: 100%;
+    text-align: center;
+}
+.logoSocial{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+.footer_links{
+    list-style: none;
+    text-align: left;
+}
+.links{
+    display: flex;
+    align-items: flex-start;
 }
 /*********Footer**********/
 
 @media(min-width: 800px){
     .navbar{
         flex-direction: row;
-        align-items: center;
+        align-items: center !important;
+        flex-wrap:nowrap !important;
+        justify-content: center !important;
+        
     }
     .navbar_links{
         flex-direction: row;
-        align-items: center;
+        align-items: flex-end;
         justify-content: space-between;
 
+    }
+    .reservaciones{
+        margin: 0 auto;
     }
 }
 /**********MediaQueries************/

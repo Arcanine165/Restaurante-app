@@ -14,7 +14,7 @@ root.render(
     <Routes>
       <Route path='/' element = {<StaticInformation/>}>
         <Route path='/reservaciones' element = {<Reservaciones/>}>
-
+        
         </Route>
       </Route>
     </Routes>

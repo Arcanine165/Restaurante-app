@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import { useForm } from '../hooks/useForm';
 import { AvailableDates } from './AvailableDates';
+import { Footer } from './Footer';
 
 export const Reservaciones = () => {
     console.log('Reservaciones se volvio a dibujar')
@@ -45,7 +46,7 @@ export const Reservaciones = () => {
         </form>
         <br/>
         {status && <AvailableDates reservacionInfo = {values}/>}
-        
+        <Footer/>
     </div>
 
   )
