@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import {Outlet,Link} from 'react-router-dom'
-
+import { Footer } from './Footer'
 export const StaticInformation = () => {
     // const  innerWidth: width, innerHeight: height } = window;
     const [width, setWidth] = useState(window.innerWidth)
@@ -52,6 +52,7 @@ export const StaticInformation = () => {
             
         </nav>
         <Outlet/>
+        <Footer/>
     </>
   )
 }
